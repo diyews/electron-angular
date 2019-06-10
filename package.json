@@ -1,0 +1,41 @@
+{
+  "name": "electron-angular",
+  "version": "1.0.0",
+  "description": "Electron with angular quick starter",
+  "scripts": {
+    "start": "electron .",
+    "debug": "electron --inspect-brk=5858 .",
+    "compile": "tsc",
+    "dist": "npm run compile && electron-builder",
+    "pack": "npm run compile && electron-builder --dir",
+    "serve": "tsc-watch --onSuccess \"electron .\"",
+    "serve:debug": "tsc-watch --onSuccess \"electron --inspect-brk=5858 .\""
+  },
+  "main": "main-release/main.js",
+  "build": {
+    "appId": "com.example",
+    "files": [
+      "!render${/*}",
+      "!tsconfig.json",
+      "!main${/*}",
+      "!main-release/**/*.js.map"
+    ]
+  },
+  "nsis": {
+    "oneClick": true
+  },
+  "repository": "https://github.com/diyews/electron-angular",
+  "keywords": [
+    "Electron",
+    "Angular",
+    "diyews"
+  ],
+  "author": "diyews",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^5.0.2",
+    "electron-builder": "^20.43.0",
+    "tsc-watch": "^2.2.1",
+    "typescript": "^3.5.1"
+  }
+}
