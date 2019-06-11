@@ -36,6 +36,15 @@ $ npm run serve
 
 ./$ npm run dist        # Then pack app
 ```
+
+## FAQs
+- **Why two parts in this repo?**
+
+  Angular is a powerful project so it's better to be isolated. For example you may use ng-cli to handle it, if you mix with main process, it's wores. Wores for host two repos. Two parts is ok and simplifier.
+  
+- **How does the electron work with `file:///` in dev mode?**
+
+  A request interceptor is set, catch resource(exclude `index.html`) then redirct to WDS.  [See more.](https://electronjs.org/docs/api/web-request#class-webrequest)
  
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
