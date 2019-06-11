@@ -1,0 +1,24 @@
+version: 2
+jobs:
+  dist:
+    docker:
+      - image: node:10.16.0
+    steps:
+      - checkout
+      - run:
+          command: cd render && npm i && npm run prod
+      - run:
+          command: npm i
+      - run:
+          command: npm run dist -- --publish never
+  render:
+    docker:
+      - image: node:10.16.0
+    steps:
+      - checkout
+      - run:
+          command: cd render && npm i && npm run prod
+workflow:
+  dist:
+    jobs:
+      - dist:
