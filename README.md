@@ -1,4 +1,5 @@
 # Electron-angular
+[![CircleCI](https://circleci.com/gh/diyews/electron-angular.svg?style=svg)](https://circleci.com/gh/diyews/electron-angular)
 
 Electron(v5) with Angular(v8) quick starter.
 
