@@ -12,19 +12,25 @@ Electron(v5) with Angular(v8) quick starter.
 ## Quick start
 Two parts in this repo, it's need to install in their own directory, prefer to open editor window for each part.
 
- 1. `./render` -> `render process`
-    - `npm i`
-    - `npm run [target]`
-      - start
-      - hmr (hor reload)
+Render part:
+```
+# ./render
+$ npm i
+$ npm run start (or `npm run hmr` for hot reload)
+```
 
- 2. `./` -> `main process`
-    - `npm i`
-    - `npm run serve`
- 
+Main part:
+```
+# ./
+$ npm i
+$ npm run serve
+```
+
 ## Packaging
+```
 1. `./render$ npm run prod`
 2. `./$ npm run dist`
+```
  
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
