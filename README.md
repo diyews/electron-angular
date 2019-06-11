@@ -10,7 +10,11 @@ Electron(v5) with Angular(v8) quick starter.
 - `file:///` instead `http://` in development mode
 
 ## Quick start
-Two parts in this repo, it's need to install in their own directory, prefer to open editor window for each part.
+Two parts in this repo:
+ - `./` for main process
+ - `./render` for render
+ 
+You need to run `npm i` for each part, it's recommended to open editor window for each part then install their deps.
 
 Render part:
 ```
@@ -28,8 +32,9 @@ $ npm run serve
 
 ## Packaging
 ```
-1. `./render$ npm run prod`
-2. `./$ npm run dist`
+./render$ npm run prod  # First pack render
+
+./$ npm run dist        # Then pack app
 ```
  
 ## License
