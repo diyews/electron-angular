@@ -19,6 +19,7 @@ jobs:
       - run:
           command: cd render && npm i && npm run prod
 workflows:
+  version: 2
   dist:
     jobs:
       - dist
