@@ -18,7 +18,7 @@ jobs:
       - checkout
       - run:
           command: cd render && npm i && npm run prod
-workflow:
+workflows:
   dist:
     jobs:
-      - dist:
+      - dist
