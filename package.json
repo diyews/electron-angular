@@ -33,7 +33,7 @@
   "author": "diyews",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^7.2.4",
+    "electron": "^10.0.0",
     "electron-builder": "^20.43.0",
     "tsc-watch": "^2.2.1",
     "typescript": "^3.5.1"

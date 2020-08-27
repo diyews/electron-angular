@@ -12,15 +12,15 @@
 <body>
   <app-root></app-root>
   <script>
-    window.__isDev = !process.mainModule.filename.includes('app.asar');
-    if (window.__isDev) {
+    window.__isDev = process.argv0.includes("node_modules") ;
+    /*if (window.__isDev) {
       const body = document.querySelector('body');
       ['runtime', 'polyfills', 'styles', 'vendor', 'main'].forEach(o => {
         const tag = document.createElement('script');
         tag.src = `${o}.js`;
         body.append(tag);
       });
-    }
+    }*/
   </script>
 </body>
 </html>

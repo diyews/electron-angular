@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --public-host localhost:4200",
+    "start": "ng serve --public-host localhost:4200 --deploy-url http://localhost:4200/",
     "hmr": "npm start -- --configuration hmr",
     "build": "ng build",
     "prod": "ng build --prod",
@@ -39,7 +39,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
-    "electron": "^5.0.3",
+    "electron": "^10.0.0",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~5.0.0",

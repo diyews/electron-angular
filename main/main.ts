@@ -5,7 +5,7 @@ import { app, BrowserWindow, session } from 'electron';
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow: BrowserWindow;
 
-global.__isDev = !process.mainModule.filename.includes('app.asar');
+global.__isDev = process.argv0.includes("node_modules") ;
 
 function createWindow() {
   // Create the browser window.
@@ -15,6 +15,7 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
       webviewTag: true,
+      enableRemoteModule: true,
     },
     frame: false,
   });
@@ -22,8 +23,8 @@ function createWindow() {
   // and load the index.html of the app.
   if (global.__isDev) {
     mainWindow.loadFile('./render/src/index.html');
-    const pathReg = /.*?\/render\/src\/((?!index\.html)(.*))/;
-    session.defaultSession.webRequest.onBeforeRequest({ urls: ['file:///*', 'http://localhost/'] }, (detail, cb) => {
+    const pathReg = /.*?\/render\/src\/index\.html$/;
+    session.defaultSession.webRequest.onBeforeRequest({ urls: ['file:///*'] }, (detail, cb) => {
       const res: any = {};
       const matched = detail.url.match(pathReg);
       if (matched) {
