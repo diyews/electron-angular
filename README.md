@@ -1,12 +1,11 @@
 # Electron-angular
 [![CircleCI](https://circleci.com/gh/diyews/electron-angular.svg?style=svg)](https://circleci.com/gh/diyews/electron-angular)
 
-Electron(v5) with Angular(v8) quick starter.
+Electron(v10) with Angular(v10) quick starter.
 
 ## Feature
-- Angular v8 Ivy enabled
 - Main process auto restart
-- Render hot reload
+- Render hot reload (partial tested)
 - `file:///` instead `http://` in development mode
 
 ## Quick start
