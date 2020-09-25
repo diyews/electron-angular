@@ -6,9 +6,9 @@ jobs:
     steps:
       - checkout
       - run:
-          command: cd render && npm i && npm run prod
-      - run:
           command: npm i
+      - run:
+          command: npm run prod
       - run:
           command: npm run dist -- --publish never
   render:
