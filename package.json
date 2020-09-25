@@ -5,11 +5,11 @@
   "scripts": {
     "start": "electron .",
     "debug": "electron --inspect-brk=5858 .",
-    "compile": "tsc",
+    "compile": "tsc -p tsconfig.electron.json",
     "dist": "npm run compile && electron-builder",
     "pack": "npm run compile && electron-builder --dir",
-    "serve": "tsc-watch --onSuccess \"electron .\"",
-    "serve:debug": "tsc-watch --onSuccess \"electron --inspect-brk=5858 .\"",
+    "serve": "tsc-watch -p tsconfig.electron.json --onSuccess \"electron .\"",
+    "serve:debug": "tsc-watch -p tsconfig.electron.json --onSuccess \"electron --inspect-brk=5858 .\"",
     "ng": "ng",
     "start:render": "ng serve --public-host localhost:4200 --deploy-url http://localhost:4200/",
     "hmr": "npm start -- --configuration hmr",
@@ -23,8 +23,12 @@
   "build": {
     "appId": "com.example",
     "files": [
-      "!src{/*}",
-      "!tsconfig.json",
+      "!src${/*}",
+      "!e2e",
+      "!tsconfig*.json",
+      "!tslint.json",
+      "!angular.json",
+      "!karma.conf.js",
       "!main${/*}",
       "!main-release/**/*.js.map"
     ]
