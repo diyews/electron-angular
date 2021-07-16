@@ -5,7 +5,7 @@ import { app, BrowserWindow, session } from 'electron';
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow: BrowserWindow;
 
-global.__isDev = process.argv0.includes("node_modules") ;
+global.__isDev = process.argv0.includes('node_modules') ;
 
 function createWindow() {
   // Create the browser window.
@@ -14,6 +14,7 @@ function createWindow() {
     height: 800,
     webPreferences: {
       nodeIntegration: true,
+      contextIsolation: false,
       webviewTag: true,
       enableRemoteModule: true,
     },
