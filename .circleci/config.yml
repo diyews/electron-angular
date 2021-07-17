@@ -2,7 +2,7 @@ version: 2
 jobs:
   dist:
     docker:
-      - image: node:latest-node
+      - image: node:latest
     steps:
       - checkout
       - run:
@@ -13,7 +13,7 @@ jobs:
           command: npm run dist -- --publish never
   render:
     docker:
-      - image: node:latest-node
+      - image: node:latest
     steps:
       - checkout
       - run:
