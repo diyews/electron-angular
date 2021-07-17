@@ -6,7 +6,7 @@ jobs:
     steps:
       - checkout
       - run:
-          command: npm i
+          command: npm i --registry=https://registry.npmjs.org/
       - run:
           command: npm run prod
       - run:
@@ -17,7 +17,7 @@ jobs:
     steps:
       - checkout
       - run:
-          command: cd render && npm i && npm run prod
+          command: cd render && npm i --registry=https://registry.npmjs.org/ && npm run prod
 workflows:
   version: 2
   dist:
