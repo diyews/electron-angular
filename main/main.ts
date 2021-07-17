@@ -23,16 +23,7 @@ function createWindow() {
 
   // and load the index.html of the app.
   if (global.__isDev) {
-    mainWindow.loadFile('./render/src/index.html');
-    const pathReg = /.*?\/render\/src\/index\.html$/;
-    session.defaultSession.webRequest.onBeforeRequest({ urls: ['file:///*'] }, (detail, cb) => {
-      const res: any = {};
-      const matched = detail.url.match(pathReg);
-      if (matched) {
-        res.redirectURL = `http://localhost:4200/${matched[1]}`;
-      }
-      cb(res);
-    });
+    mainWindow.loadFile('src/index.html');
   } else {
     mainWindow.loadFile('render-release/index.html');
   }

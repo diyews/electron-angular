@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="Content-Security-Policy" content="script-src 'unsafe-inline' 'self' http://localhost:4200 ws://localhost:4200">
   <title>Render</title>
-  <base href="/">
+  <base href="">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -12,15 +12,22 @@
 <body>
   <app-root></app-root>
   <script>
-    window.__isDev = process.argv0.includes("node_modules") ;
-    /*if (window.__isDev) {
+    window.__isDevIndex = /\/src\/index.html/.test(location.href);
+    if (window.__isDevIndex) {
       const body = document.querySelector('body');
+      const head = document.querySelector('head');
       ['runtime', 'polyfills', 'styles', 'vendor', 'main'].forEach(o => {
         const tag = document.createElement('script');
-        tag.src = `${o}.js`;
+        tag.src = `http://localhost:4200/${o}.js`;
         body.append(tag);
       });
-    }*/
+      ['styles'].forEach(o => {
+        const tag = document.createElement('link');
+        tag.href = `http://localhost:4200/${o}.css`;
+        tag.rel= `stylesheet`;
+        head.append(tag);
+      })
+    }
   </script>
 </body>
 </html>
