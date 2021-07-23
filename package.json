@@ -11,7 +11,7 @@
     "serve": "tsc-watch -p tsconfig.electron.json --onSuccess \"electron .\"",
     "serve:debug": "tsc-watch -p tsconfig.electron.json --onSuccess \"electron --inspect-brk=5858 .\"",
     "ng": "ng",
-    "start:render": "ng serve --public-host localhost:4200 ",
+    "start:render": "ng serve --public-host localhost:4200 --serve-path /",
     "hmr": "npm start -- --configuration hmr",
     "build": "ng build",
     "prod": "ng build --configuration production",

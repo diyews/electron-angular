@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, session } from 'electron';
 import { initialize } from '@electron/remote/main';
 
 initialize();
@@ -27,6 +27,16 @@ function createWindow() {
   // and load the index.html of the app.
   if (global.__isDev) {
     mainWindow.loadFile('src/index.html');
+    /* if some assets request file:// uncomment below */
+    // const pathReg = /\/src\/(?!index\.html)/;
+    // session.defaultSession.webRequest.onBeforeRequest({ urls: ['file:///*'] }, (detail, cb) => {
+    //   const res: any = {};
+    //   const matched = detail.url.match(pathReg);
+    //   if (matched) {
+    //     res.redirectURL = `http://localhost:4200/` + detail.url.split('/src/')[1];
+    //   }
+    //   cb(res);
+    // });
   } else {
     mainWindow.loadFile('render-release/index.html');
   }
