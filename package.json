@@ -29,6 +29,7 @@
       "!tslint.json",
       "!angular.json",
       "!karma.conf.js",
+      "!.*",
       "!main${/*}",
       "!main-release/**/*.js.map"
     ]
