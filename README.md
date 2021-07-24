@@ -14,13 +14,11 @@ Run `npm i`.
 
 Render:
 ```
-$ npm i
 $ npm run start:render (or `npm run hmr` for hot reload)
 ```
 
 Main:
 ```
-# ./
 $ npm run start (`serve` for auto reload)
 ```
 
@@ -34,7 +32,7 @@ $ npm run dist  # Then pack app
 ## FAQs
 - **How does the electron work with `file:///` in dev mode?**
 
-  Add script tag in `index.html` manually.
+  Add script, style tag in `index.html` that served by dev serve manually.
  
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
