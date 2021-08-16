@@ -1,8 +1,7 @@
 // Modules to control application life and create native browser window
 import { app, BrowserWindow, session } from 'electron';
-import { initialize } from '@electron/remote/main';
-
-initialize();
+import { join } from 'path';
+import './ipc/browser_window';
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -15,10 +14,8 @@ function createWindow() {
     width: 1200,
     height: 800,
     webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false,
+      preload: join(__dirname, `preload/default.js`),
       webviewTag: true,
-      enableRemoteModule: true,
     },
     frame: false,
   });

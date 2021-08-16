@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BrowserWindow } from 'electron';
+import { ElectronService } from '../../services/electron.service';
 
 @Component({
     selector: 'app-window-buttons',
@@ -8,29 +8,25 @@ import { BrowserWindow } from 'electron';
 })
 
 export class WindowButtonsComponent implements OnInit {
-    currentWindow: BrowserWindow;
-
-    constructor() {
+    constructor(private electronService: ElectronService,
+                ) {
     }
 
     ngOnInit() {
-        const { getCurrentWindow } = window.require('@electron/remote');
-        this.currentWindow = getCurrentWindow();
     }
 
     minimize() {
-        this.currentWindow.minimize();
+      this.electronService.ipcRenderer
+        .invoke(`minimize`);
     }
 
     switchMaximize() {
-        if (this.currentWindow.isMaximized()) {
-            this.currentWindow.unmaximize();
-        } else {
-            this.currentWindow.maximize();
-        }
+      this.electronService.ipcRenderer
+        .invoke(`toggle_maximize`);
     }
 
     close() {
-        this.currentWindow.close();
+      this.electronService.ipcRenderer
+        .invoke(`close`);
     }
 }

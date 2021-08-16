@@ -5,11 +5,8 @@
   "scripts": {
     "start": "electron .",
     "debug": "electron --inspect-brk=5858 .",
-    "compile": "tsc -p tsconfig.electron.json",
-    "dist": "npm run compile && electron-builder",
-    "pack": "npm run compile && electron-builder --dir",
-    "serve": "tsc-watch -p tsconfig.electron.json --onSuccess \"electron .\"",
-    "serve:debug": "tsc-watch -p tsconfig.electron.json --onSuccess \"electron --inspect-brk=5858 .\"",
+    "dist": "npm run webpack:main && electron-builder",
+    "pack": "npm run webpack:main && electron-builder --dir",
     "ng": "ng",
     "start:render": "ng serve --public-host localhost:4200 --serve-path /",
     "hmr": "npm start -- --configuration hmr",
@@ -17,6 +14,8 @@
     "prod": "ng build --configuration production",
     "test": "ng test",
     "lint": "ng lint",
+    "webpack:main": "webpack --config ./webpack/main.config.js",
+    "serve": "webpack --config ./webpack/main.config.js --watch --mode=development",
     "e2e": "ng e2e"
   },
   "main": "main-release/main.js",
@@ -59,7 +58,6 @@
     "@angular/platform-browser-dynamic": "~12.1.2",
     "@angular/router": "~12.1.2",
     "@angularclass/hmr": "^3.0.0",
-    "@electron/remote": "^1.2.0",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^14.17.5",
@@ -75,11 +73,13 @@
     "karma-jasmine-html-reporter": "^1.5.0",
     "protractor": "~7.0.0",
     "rxjs": "~6.6.2",
+    "ts-loader": "^9.2.5",
     "ts-node": "~7.0.0",
-    "tsc-watch": "^2.2.1",
     "tslib": "^2.0.0",
     "tslint": "~6.1.0",
     "typescript": "^4.3.5",
+    "webpack": "^5.50.0",
+    "webpack-cli": "^4.8.0",
     "zone.js": "~0.11.4"
   }
 }
